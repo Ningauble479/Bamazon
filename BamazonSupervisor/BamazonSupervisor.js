@@ -31,19 +31,19 @@ function promptSupervisor() {
       {
         type: "list",
         name: "choice",
-        message: "What would you like to do?",
-        choices: ["View Product Sales by Department", "Create New Department", "Quit"]
+        message: "What do?",
+        choices: ["How much stuff Sell?", "New Place?", "Leave?"]
       }
     ])
     .then(function(val) {
-      if (val.choice === "View Product Sales by Department") {
+      if (val.choice === "How much stuff Sell?") {
         viewSales();
       }
-      else if (val.choice === "Create New Department") {
+      else if (val.choice === "New Place?") {
         addDepartment();
       }
       else {
-        console.log("Goodbye!");
+        console.log("Where go?!");
         process.exit(0);
       }
     });
@@ -55,12 +55,12 @@ function addDepartment() {
       {
         type: "input",
         name: "name",
-        message: "What is the name of the department?"
+        message: "What place called?"
       },
       {
         type: "input",
         name: "overhead",
-        message: "What is the overhead cost of the department?",
+        message: "How much cost?",
         validate: function(val) {
           return val > 0;
         }
